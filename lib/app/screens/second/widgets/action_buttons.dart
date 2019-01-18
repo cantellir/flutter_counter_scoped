@@ -1,0 +1,27 @@
+import 'package:flutter/material.dart';
+import 'package:scoped_model/scoped_model.dart';
+
+import 'package:counter_scoped/app/screens/second/model.dart';
+
+class ActionButtons extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    //Para teste, usando tanto o descendant quanto o .of
+    final secondModel = SecondModel.of(context);
+
+    return Row(
+      children: <Widget>[
+        IconButton(
+          icon: Icon(Icons.add),
+          onPressed: secondModel.increment,
+        )
+        // ScopedModelDescendant<SecondModel>(builder: (context, child, model) {
+        //   return IconButton(
+        //     icon: Icon(Icons.add),
+        //     onPressed: model.increment,
+        //   );
+        // })
+      ],
+    );
+  }
+}
