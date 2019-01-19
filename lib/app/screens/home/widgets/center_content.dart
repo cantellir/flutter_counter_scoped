@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 
-import 'package:counter_scoped/app/core/CounterModel.dart';
+import 'package:counter_scoped/app/core/counter_model.dart';
 
 class CenterContent extends StatelessWidget {
   @override

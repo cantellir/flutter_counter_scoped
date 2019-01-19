@@ -1,12 +1,25 @@
-import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class SecondModel extends Model {
   int _counter = 0;
   bool _isLoading = false;
+  String _initialData = '';
 
   int get counter => _counter;
   bool get isLoading => _isLoading;
+  String get initialData => _initialData;
+
+  SecondModel() {
+    simulateInitialData();
+  }
+
+  void simulateInitialData() {
+    _showLoading();
+    Future.delayed(new Duration(seconds: 4), () {
+      _initialData = 'Initial data loaded!';
+      _hideLoading();
+    });
+  }
 
   void increment() {
     _counter++;
@@ -29,6 +42,4 @@ class SecondModel extends Model {
       _hideLoading();
     });
   }
-
-  static SecondModel of(BuildContext context) => ScopedModel.of<SecondModel>(context, rebuildOnChange: true);  
 }
